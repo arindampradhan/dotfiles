@@ -1,0 +1,20 @@
+include 
+autoindent 1
+autoedit_syntax 0
+cache_size 1000
+colors LightBG
+confirm_exit 0
+deep_reload 0
+banner 1
+pprint 1
+readline_parse_and_bind tab: complete
+xmode Context
+# These commands allow you to indent/unindent easily, with the 4-space
+# convention of the Python coding standards.  Since IPython's internal
+# auto-indent system also uses 4 spaces, you should not change the number of
+# spaces in the code below.
+readline_parse_and_bind "\M-i": "    "
+readline_parse_and_bind "\M-o": "\d\d\d\d"
+readline_parse_and_bind "\M-I": "\d\d\d\d"
+import_mod
+import_some
