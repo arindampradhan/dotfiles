@@ -3,7 +3,7 @@ add-apt-repository -y ppa:linrunner/tlp
 add-apt-repository -y ppa:fossfreedom/byzanz
 apt-get update
 
-
+# apt-get dependencies
 apt-get -y install mplayer
 apt-get -y install Preload
 apt-get -y install curl
@@ -22,7 +22,7 @@ apt-get -y install redshift
 apt-get -y install byzanz
 tlp start
 
-
+# python dependencies
 pip install --upgrade
 pip install ipython
 pip install flask
@@ -35,6 +35,11 @@ pip install thefuck
 pip install youtube-dl
 pip install beautifulsoup4
 pip install virtualenvwrapper
+
+
+# nodejs | nvm 
+apt-get install nodejs
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 
 apt-get -y install zsh
