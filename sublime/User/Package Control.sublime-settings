@@ -1,0 +1,24 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoPEP8",
+		"EJS",
+		"Emmet",
+		"Emmet Css Snippets",
+		"GitGutter",
+		"HTMLBeautify",
+		"JavaScript & NodeJS Snippets",
+		"JavaScriptNext - ES6 Syntax",
+		"jQuery",
+		"JSHint",
+		"Node Completions",
+		"Package Control",
+		"SideBarEnhancements",
+		"Terminal",
+		"Theme - Spacegray"
+	]
+}
