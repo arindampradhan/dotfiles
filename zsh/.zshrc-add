@@ -22,7 +22,7 @@ fi
 # export GOROOT=$GOPATH # not doing this.. Saving packages for local user
 
 # User configuration | local | npm | heroku | go | sbin | games
-export PATH="$HOME/local/bin:$HOME/.npm-packages/bin:/usr/local/go/bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/local/bin:/usr/local/go/bin:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Compilation flags
@@ -30,9 +30,6 @@ export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# making the npm local
-export PATH="$PATH:$HOME/.npm-packages/bin"
 
 # node version management
 export NVM_DIR="$HOME/.nvm"

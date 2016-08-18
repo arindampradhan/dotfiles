@@ -39,7 +39,8 @@ pip install speedtest-cli
 # nodejs | nvm
 apt-get -y install nodejs
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
+nvm install node
+nvm use stable
 
 mv ./vim/.vim ./vim/.vimrc $HOME
 mv npm/.npmrc $HOME
