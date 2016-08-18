@@ -1,0 +1,149 @@
+# ######### Network Server ####################
+# ---------------------------------------------
+# python http server
+# ex: 	server	< -- default port is 8000
+# $ ifconfig or $ ip addr
+alias server="python3 -m http.server"
+alias server2="python2 -m SimpleHTTPServer"
+###############################################
+
+########## handy ##############################
+download() { wget $(apt-get --print-uris -y install "$@" | grep ^\'| cut -d\' -f2) ;}
+extract() { ar vx "$@" | tar -zxvf data.tar.gz ;}
+blocksite() { sudo vim /etc/hosts ;}
+###############################################
+
+# ####### apt and extras ######################
+# emerge: autoclean, purge, list, query
+# rug: info, clean, autoremove, autoclean, purge, list, query
+# zypper: info, autoremove, autoclean, purge, list, query
+# yum: autoclean, purge# same as; echo "pkgname hold" | dpkg --set-selections
+cleanallall() { sudo apt-get clean ;}
+cleanallold() { sudo apt-get autoclean ;}
+dependsreverse() { apt-cache rdepends "$@" ;}
+hold() { sudo apt-mark hold "$@" ;}
+hold-status() { dpkg --get-selections | awk "/${@:-hold}/" ;}
+info() { apt-cache show "$@" ;}
+install() { sudo apt-get install --no-install-recommends "$@" ;}
+list() { dpkg -L "$@" ;}
+listcache() { ls -1 /var/cache/apt/archives "$@" && \
+echo "pwd: /var/cache/apt/archives" ;}
+localinstall() { sudo dpkg -i "$@" ;}
+own() { dpkg -S $(which "$@") ;}
+purge() { sudo apt-get purge "$@" ;}
+query() { dpkg --get-selections | grep "$@" ;}
+update() { sudo apt-get update ;}
+remove() { sudo apt-get remove "$@" ;}
+remove-orphans() { sudo apt-get autoclean ;}
+search() { apt-cache search "$@" ;}
+unhold() { sudo apt-mark unhold "$@" ;}
+upgrade() { sudo apt-get upgrade ;}
+###############################################
+
+
+################## PPA ##########################
+# PPA on ubuntu base distro (not compatible with debian)
+ppa-add() { sudo add-apt-repository $@ ;}
+ppa-del() { sudo add-apt-repository -r $@ ;}
+ppa-key() { sudo apt-key add $@ ;}
+ppa-list() { ls /etc/apt/sources.list.d ;}
+ppa-purge() { sudo ppa-purge $@ ;}
+# auto get missing gpg keys from launchpad
+ppa-autokey() { sudo apt-get update 2> /tmp/keymissing; \
+for key in $(grep "NO_PUBKEY" /tmp/keymissing |sed "s/.*NO_PUBKEY //"); \
+do echo -e "\nProcessing key: $key"; gpg --keyserver pool.sks-keyservers.net \
+--recv $key && gpg --export --armor $key | sudo apt-key add -; done ;}
+ppa-present() {
+for APT in `find /etc/apt/ -name \*.list`; do
+    grep -o "^deb http://ppa.launchpad.net/[a-z0-9\-]\+/[a-z0-9\-]\+" $APT | while read ENTRY ; do
+        USER=`echo $ENTRY | cut -d/ -f4`
+        PPA=`echo $ENTRY | cut -d/ -f5`
+        echo ppa:$USER/$PPA
+    done
+done
+}
+################################################
+
+
+################ Music and Files ###############
+# convert video to avi container
+# usage: vid2avi file.mpg
+vid2avi() { ffmpeg -i "$1" -vcodec mpeg4 -sameq "${1%.*}.vid2avi.avi" ;}
+
+# convert youtube to mp3
+ump3() { youtube-dl -c --restrict-filenames --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" $@ ;}
+#}}}
+
+# convert doc/docx to pdf (dont upload sensitive data)
+# usage: doc2pdf file.docx or doc2pdf file.doc
+doc2pdf() { curl -# -F inputDocument=@"$1" http://www.doc2pdf.net/convert/document.pdf > "${1%.*}.pdf" ;}
+################################################
+
+
+############## Directory Shortcuts #############
+#-----------------------------------------------
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+################################################
+
+
+################# Handy Git aliases ############
+#-----------------------------------------------
+alias gs="git status"
+alias ga="git add"
+alias gb="git branch"
+alias gc="git commit -m "$1""
+alias gp="git push $1 $2" # gp OR gp [remote] [branch]
+alias pull="git pull"
+alias gt="git tag "$1""
+alias gtp="git push --tags"
+alias pull="git pull"
+alias co="git checkout"
+alias fuck="git push master origin"
+alias gl="git log --pretty=oneline"
+alias lol="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gcl="git clone"
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+# add all changes from working tree to stage, commit them with message and push them
+function g() {
+    git add -A :/;
+    git commit -m "$1";
+    git push;
+}
+################################################
+
+
+#################### Extras ####################
+# directory navigation
+alias codebase="cd $HOME/Dropbox/codebase/"
+alias hacks="cd $HOME/Dropbox/codebase/hacks"
+
+# django ports
+alias djports="fuser -k 8000/tcp"
+
+#sqlite
+alias sq="sqlite3"
+
+# heroku
+alias h-destory="heroku apps:destroy --app"
+
+# vim 
+alias v="vim"
+
+# sublime
+alias s="subl"
+
+# ipython
+alias i="ipython"
+
+# find port
+alias ports="sudo netstat -lnp --tcp --udp"
+
+# heroku destroy
+alias hdestroy="heroku apps:destroy --app $1"
+alias fzf="$HOME/.fzf/bin/fzf"
+
