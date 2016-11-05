@@ -1,6 +1,3 @@
-add-apt-repository -y ppa:webupd8team/java
-add-apt-repository -y ppa:linrunner/tlp
-add-apt-repository -y ppa:fossfreedom/byzanz
 apt-get update
 
 
@@ -10,23 +7,11 @@ apt-get update
 
 
 # apt-get dependencies
-apt-get -y install mplayer
-apt-get -y install Preload
 apt-get -y install curl
 apt-get -y install libcurl3 libcurl3-dev php5-curl
 apt-get -y install python-software-properties
 apt-get -y install ubuntu-restricted-extras
-apt-get -y install flashplugin-installer
 apt-get -y install rar
-apt-get -y install git
-apt-get -y install openjdk-7-jre
-apt-get -y install openjdk-7-jdk
-apt-get -y install icedtea-7-plugin
-apt-get -y install virtualbox
-apt-get -y install tlp tlp-rdw
-apt-get -y install redshift
-apt-get -y install byzanz
-tlp start
 
 
 # install pip
