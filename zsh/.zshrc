@@ -76,3 +76,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # export PYTHONUSERBASE=$HOME/.pythonbase
 # PATH="$PYTHONUSERBASE/bin:${PATH}"
+
+export PATH="/home/cookie/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
