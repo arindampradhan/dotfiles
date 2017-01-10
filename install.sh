@@ -12,7 +12,7 @@ apt-get -y install libcurl3 libcurl3-dev php5-curl
 apt-get -y install python-software-properties
 apt-get -y install ubuntu-restricted-extras
 apt-get -y install rar
-
+apt-get -y install vim
 
 # install pip
 wget https://bootstrap.pypa.io/get-pip.py
