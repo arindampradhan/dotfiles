@@ -13,6 +13,7 @@ apt-get -y install python-software-properties
 apt-get -y install ubuntu-restricted-extras
 apt-get -y install rar
 apt-get -y install vim
+apt-get -y install git
 
 # install pip
 wget https://bootstrap.pypa.io/get-pip.py
