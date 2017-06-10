@@ -18,10 +18,12 @@ apt-get -y install byzanz
 apt-get -y install vim
 apt-get -y install zsh
 
-# docker installation
+# docker installation | add rooted user
 wget -qO- https://get.docker.com/ | sh
 usermod -aG docker $(whoami)
 apt-get -y install python-pip
+groupadd docker
+gpasswd -a $USER docker
 
 # install pip
 wget https://bootstrap.pypa.io/get-pip.py
