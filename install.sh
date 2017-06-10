@@ -18,6 +18,10 @@ apt-get -y install byzanz
 apt-get -y install vim
 apt-get -y install zsh
 
+# docker installation
+wget -qO- https://get.docker.com/ | sh
+usermod -aG docker $(whoami)
+apt-get -y install python-pip
 
 # install pip
 wget https://bootstrap.pypa.io/get-pip.py
@@ -36,6 +40,8 @@ pip install virtualenv
 pip install youtube-dl
 pip install virtualenvwrapper
 pip install speedtest-cli
+pip install docker-compose
+
 
 # nodejs | nvm
 apt-get -y install nodejs
