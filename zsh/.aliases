@@ -106,6 +106,8 @@ alias fuck="git push master origin"
 alias gl="git log --pretty=oneline"
 alias lol="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gcl="git clone"
+alias gbs="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 # add all changes from working tree to stage, commit them with message and push them
