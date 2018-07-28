@@ -77,6 +77,7 @@ ump3() { youtube-dl -c --restrict-filenames --extract-audio --audio-format mp3 -
 # convert doc/docx to pdf (dont upload sensitive data)
 # usage: doc2pdf file.docx or doc2pdf file.doc
 doc2pdf() { curl -# -F inputDocument=@"$1" http://www.doc2pdf.net/convert/document.pdf > "${1%.*}.pdf" ;}
+tree() { find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/" }
 ################################################
 
 
