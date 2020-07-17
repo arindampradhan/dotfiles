@@ -13,6 +13,14 @@
     autocrlf = input
     editor = /usr/local/bin/vim
 
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+
 [color]
     ui = auto
 
