@@ -72,7 +72,7 @@ alias h-destory="heroku apps:destroy --app"
 alias myip="curl ipinfo.io/ip"
 
 # vim 
-alias v="vim"
+alias v="nvim"
 
 # ipython
 alias i="ipython"
